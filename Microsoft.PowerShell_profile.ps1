@@ -68,3 +68,22 @@ function clonem([string] $url) {
 function reminder([int]$minuites, [string]$text) {
     New-ToastReminder -AppLogo 'C:\Icons\reminder.png' -Minutes $minuites -ReminderTitle 'Reminder Reminder!' -ReminderText $text
 }
+
+function dockerremove() {
+    docker rm @(docker ps -a -q)
+
+    cprint black "Finished cleaning docker containers" on rainbow print
+}
+
+function dockerstop() {
+    docker stop @(docker ps -a -q)
+
+    cprint black "Finished stopping docker containers" on rainbow print
+}
+
+function portainer() {
+    docker pull portainer/portainer
+    docker run -d -p 9000:9000 -p 8000:8000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+    cprint black "Now listening on http://localhost:9000/" on rainbow print
+}
