@@ -87,3 +87,35 @@ function portainer() {
 
     cprint black "Now listening on http://localhost:9000/" on rainbow print
 }
+
+function sqlserver() {
+    docker run --name 'sqlserver' -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+}
+
+function gitm() {
+    git co master
+    git up
+
+    cprint black "Finished updating master" on rainbow print
+}
+
+function editprofile() {
+    $profilePath = $PROFILE
+    $message = "Editing profile: " + $profilePath
+
+    cprint black $message on rainbow print
+
+    code $profilePath
+}
+
+function view([string] $filename) {
+    Get-Content -Path .\$filename
+}
+
+function view_small([string] $filename) {
+    Get-Content -Path .\$filename -TotalCount 20
+}
+
+function view_last([string] $filename) {
+    Get-Item -Path .\$filename | Get-Content -Tail 20
+}
