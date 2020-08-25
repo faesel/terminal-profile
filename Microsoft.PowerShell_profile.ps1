@@ -119,3 +119,40 @@ function view_small([string] $filename) {
 function view_last([string] $filename) {
     Get-Item -Path .\$filename | Get-Content -Tail 20
 }
+
+function help() {
+    Write-Output "--------------"
+    Write-Output "NAVIGATION";
+    Write-Output "--------------"
+    Write-Output "se - View all files in the current directory";
+    Write-Output "treels - View all files in the current directory as a tree";
+    Write-Output "treef - Search for a file in the tree";
+    Write-Output "cc - navigate to code folder";
+    Write-Output "ccf - navigate to personal code folder";
+    Write-Output "GIT";
+    Write-Output "newb - Create a new branch, checkout and track";
+    Write-Output "publish - Publish branch";
+    Write-Output "clonem - Clone branch and toast notify";
+    Write-Output "gitm - Checkout master and get latest code";
+    
+    Write-Output "--------------"
+    Write-Output "FILES";
+    Write-Output "--------------"
+    Write-Output "view - View contents of a file";
+    Write-Output "view_small - View the first 20 lines of a file";
+    Write-Output "view_last - View the last 20 lines of a file";
+    
+    Write-Output "--------------"
+    Write-Output "DOCKER";
+    Write-Output "--------------"
+    Write-Output "dockerremove - remove all containers";
+    Write-Output "dockerstop - stop all containers";
+    Write-Output "portainer - spin up portainer in an container";
+    Write-Output "sqlserver - spin up sqlserver in a container";
+    
+    Write-Output "--------------"
+    Write-Output "UTILITIES";
+    Write-Output "--------------"
+    Write-Output "reminder - Create a reminder usage for 1 minuite: reminder 1 this is the reminder";
+    Write-Output "editprofile - Edit the powershell profile";
+}
