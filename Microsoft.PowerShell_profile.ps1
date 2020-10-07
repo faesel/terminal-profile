@@ -120,6 +120,11 @@ function view_last([string] $filename) {
     Get-Item -Path .\$filename | Get-Content -Tail 20
 }
 
+function editfile([string] $filename) {
+    $command = "nano " + $filename
+    bash -c $command
+}
+
 function help() {
     Write-Output "--------------"
     Write-Output "NAVIGATION";
@@ -129,7 +134,10 @@ function help() {
     Write-Output "treef - Search for a file in the tree";
     Write-Output "cc - navigate to code folder";
     Write-Output "ccf - navigate to personal code folder";
+
+    Write-Output "--------------"
     Write-Output "GIT";
+    Write-Output "--------------"
     Write-Output "newb - Create a new branch, checkout and track";
     Write-Output "publish - Publish branch";
     Write-Output "clonem - Clone branch and toast notify";
