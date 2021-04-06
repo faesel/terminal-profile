@@ -15,6 +15,9 @@ Import-Module -Name Terminal-Icons
 # IMPORT CUSTOM FILES
 . "C:\Users\faese\Documents\WindowsPowerShell\Custom\BurntToast.ps1"
 
+# GLOCAL VARIABLES
+$NEWLINE = "`r`n"
+
 # ALIAS
 Set-Alias -Name k -Value kubectl
 Set-Alias -Name g -Value git
@@ -137,6 +140,27 @@ function gitpersonal() {
     cprint black "Now using faesel@gmail.com" on rainbow print
 }
 
+function gitprune() {
+    $branches = git br | Sort-Object
+    Foreach ($branch in $branches)
+    {
+        $branch = $branch.trimstart('*');
+        $branch = $branch.trimstart();
+
+        if ($branch.ToString() -in "master", "QA", "working", "main")
+        {            
+            $bm = 'Keeping => ' + $branch + $NEWLINE
+            cprint green $bm on black print
+        }
+        else 
+        {
+            git brd $branch -D
+
+            $bm = 'Deleting => ' + $branch + $NEWLINE
+            cprint red $bm on black print
+        }
+    }
+}
 
 function help() {
     Write-Output "--------------"
