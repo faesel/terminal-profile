@@ -6,13 +6,18 @@
 #Install-Module -Name WifiTools
 
 # THEMES
-Set-Theme Paradox
+Set-PoshPrompt -Theme agnoster
 
 # IMPORTS
 Import-Module -Name Terminal-Icons
 
+
 # IMPORT CUSTOM FILES
 . "C:\Users\faese\Documents\WindowsPowerShell\Custom\BurntToast.ps1"
+
+# ALIAS
+Set-Alias -Name k -Value kubectl
+Set-Alias -Name g -Value git
 
 # SHORTCUTS
 function se {
@@ -125,6 +130,14 @@ function editfile([string] $filename) {
     bash -c $command
 }
 
+function gitpersonal() {
+    git config --global user.name "Faesel Saeed"
+    git config --global user.email "faesel@gmail.com"
+
+    cprint black "Now using faesel@gmail.com" on rainbow print
+}
+
+
 function help() {
     Write-Output "--------------"
     Write-Output "NAVIGATION";
@@ -163,4 +176,10 @@ function help() {
     Write-Output "--------------"
     Write-Output "reminder - Create a reminder usage for 1 minuite: reminder 1 this is the reminder";
     Write-Output "editprofile - Edit the powershell profile";
+}
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
 }
