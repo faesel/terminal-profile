@@ -143,6 +143,10 @@ function gitpersonal() {
     cprint black "Now using faesel@gmail.com" on rainbow print
 }
 
+function localk8() {
+    kubectl config use-context docker-desktop
+}
+
 function gitprune() {
     $branches = git br | Sort-Object
     Foreach ($branch in $branches)
