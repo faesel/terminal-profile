@@ -36,17 +36,20 @@ function treef ([string] $pattern) {
 }
 
 function cc {
-    cd C:\code 
+    cd C:\code
+    gitplum
     se
 }
 
 function ccp { 
     cd C:\code\Plum
+    gitplum
     se
 }
 
 function ccf {
     cd c:\code\faesel
+    gitpersonal
     se
 }
 
