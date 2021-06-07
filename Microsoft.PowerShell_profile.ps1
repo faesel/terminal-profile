@@ -10,7 +10,7 @@ Set-PoshPrompt -Theme agnoster
 
 # IMPORTS
 Import-Module -Name Terminal-Icons
-
+Import-Module -Name post-git
 
 # IMPORT CUSTOM FILES
 . "C:\Users\faese\Documents\WindowsPowerShell\Custom\BurntToast.ps1"
