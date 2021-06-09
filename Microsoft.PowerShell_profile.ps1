@@ -186,6 +186,7 @@ function help() {
     Write-Output "publish - Publish branch";
     Write-Output "clonem - Clone branch and toast notify";
     Write-Output "gitm - Checkout master and get latest code";
+    Write-Output "gitprune - Prules old branches"	
     
     Write-Output "--------------"
     Write-Output "FILES";
