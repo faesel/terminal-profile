@@ -80,6 +80,12 @@ function reminder([int]$minuites, [string]$text) {
     New-ToastReminder -AppLogo 'C:\Icons\reminder.png' -Minutes $minuites -ReminderTitle 'Reminder Reminder!' -ReminderText $text
 }
 
+function dockerremoveservice() {
+    docker service rm @(docker service ls -q)
+
+    cprint black "Finished cleaning docker services" on rainbow print
+}
+
 function dockerremove() {
     docker rm @(docker ps -a -q)
 
@@ -199,6 +205,7 @@ function help() {
     Write-Output "DOCKER";
     Write-Output "--------------"
     Write-Output "dockerremove - remove all containers";
+    Write-Output "dockerremoveservice - remove all services";
     Write-Output "dockerstop - stop all containers";
     Write-Output "portainer - spin up portainer in an container";
     Write-Output "sqlserver - spin up sqlserver in a container";
