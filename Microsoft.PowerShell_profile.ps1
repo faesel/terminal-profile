@@ -4,6 +4,7 @@
 #Install-Module -Name Tree (this has another dependency here: http://gnuwin32.sourceforge.net/packages/tree.htm)
 #Install-Module -Name Terminal-Icons
 #Install-Module -Name WifiTools
+#Install-Module PSReadLine -AllowPrerelease -Force
 
 # THEMES
 Set-PoshPrompt -Theme agnoster
@@ -11,6 +12,12 @@ Set-PoshPrompt -Theme agnoster
 # IMPORTS
 Import-Module -Name Terminal-Icons
 Import-Module -Name post-git
+Import-Module -Name PSReadLine
+
+# SETTINGS
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -EditMode Windows
 
 # IMPORT CUSTOM FILES
 . "C:\Users\faese\Documents\WindowsPowerShell\Custom\BurntToast.ps1"
