@@ -47,3 +47,20 @@ function gitm
     git co master
     git up
 end
+
+function updateall
+    echo '|||||||||||||||| Starting apt ||||||||||||||||'
+    sudo apt update && sudo apt upgrade
+    
+    echo '|||||||||||||||| Updating snap ||||||||||||||||'
+    sudo snap refresh
+
+    echo '|||||||||||||||| Updating flatpak ||||||||||||||||'
+    sudo flatpak update
+
+    echo '|||||||||||||||| Updating apt-get ||||||||||||||||'
+    sudo apt-get update
+    sudo apt-get upgrade
+
+    sudo apt-get dist-upgrade
+end
