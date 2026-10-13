@@ -1,0 +1,55 @@
+[core]
+	editor = code --wait
+[user]
+	name = Faesel Saeed
+	email = faesel@gmail.com
+[alias]
+	git = !exec git
+	f = "!git fetch || { echo 'Gretchen, stop trying to make fetch happen!'; exit 1; }"
+	st = status --short --branch
+	stl = status --branch
+	si = status --ignored
+	ci = commit
+	co = checkout
+	br = branch
+	brd = branch -d
+	bra = branch -a
+	brn = rev-parse --abbrev-ref HEAD
+	df = diff
+	dc = diff --cached
+	dn = diff --name-only
+	dw = diff --color-words
+	sq = merge --squash
+	cob = checkout -b
+	cm = commit -a -m
+	ammend = commit --amend
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	llog = log --oneline @{upstream}..HEAD
+	llp = log -p @{upstream}..HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lt = log --graph --simplify-by-decoration --pretty=format:'%d' --all
+	ls = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate
+	ll = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat
+	lnc = log --pretty=format:'%h %s [%cn]'
+	lds = log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short
+	le = log --oneline --decorate
+	l = log --graph --oneline --decorate --date=relative --all
+	filelog = log -u
+	fl = log -u
+	dlc = diff --cached HEAD~1
+	pr = pull --rebase
+	pro = pull --rebase origin
+	prom = pull --rebase origin mainline
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%ar%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+	dfn = diff --name-only
+	permission-reset = "!git diff -p -R | grep -E '^(diff|(old|new) mode)' | git apply"
+	supergrep = !git rev-list --all | xargs git grep
+	fo = fetch origin
+	recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+	publish = push --set-upstream origin
+	unstage = reset HEAD
+	up = "!git pull --rebase --prune && git log --pretty=format:'%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)' 'HEAD@{1}..'"
+	scan = !git clean -nx && git clean -ndx
+	nuke = !git clean -fx && git clean -fdx
+	ac = !git add -A && git commit -m
+	undo = reset --soft HEAD~1
